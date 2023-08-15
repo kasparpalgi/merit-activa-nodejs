@@ -2,6 +2,8 @@
 
 Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results.
 
+Below are commented out items fetching by the part of the product description and below fetching a specific customer based on the ID.
+
 * Merit Activa API: https://api.merit.ee/connecting-robots/reference-manual/
 * `getoffers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/sales-offers/get-list-of-sales-offers/
 * `getcustomers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/customers/get-customer-list/
