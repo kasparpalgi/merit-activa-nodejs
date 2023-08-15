@@ -1,0 +1,3 @@
+API_ID=<your-merit-api-ID>
+API_KEY=<your-merit-api-key>
+ENDPOINT=<if-you-want-to-send-data-to-api-endpoint>

@@ -5,5 +5,6 @@
 
 ## How to run
 
-1. `npm i`
-2. `node index.js`
+1. Rename `env-example.txt` to `.env` and add your data into it
+2. `npm i`
+3. `node index.js`
