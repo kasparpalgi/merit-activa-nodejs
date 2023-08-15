@@ -7,6 +7,9 @@ Below are commented out items fetching by the part of the product description an
 * Merit Activa API: https://api.merit.ee/connecting-robots/reference-manual/
 * `getoffers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/sales-offers/get-list-of-sales-offers/
 * `getcustomers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/customers/get-customer-list/
+* `getitems` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/items/items-list/
+* `purchorders` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/purchase-invoices/get-list-of-purchase-invoices/
+* `getinvoices` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/sales-invoices/get-list-of-invoices/
 
 ## How to run
 
