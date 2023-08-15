@@ -1,5 +1,12 @@
 require('dotenv').config();
 
+// Set the start and end date to fetch the offers for
+const requestBody = JSON.stringify({
+    PeriodStart: "20230815",
+    PeriodEnd: "20230815",
+    UnPaid: false
+});
+
 const crypto = require('crypto');
 const https = require('https');
 
@@ -51,12 +58,6 @@ const fetchCustomerInfo = (customerId, callback) => {
     customerReq.write(customerRequestBody);
     customerReq.end();
 };
-
-const requestBody = JSON.stringify({
-    PeriodStart: "20230810",
-    PeriodEnd: "20230815",
-    UnPaid: false
-});
 
 const signable = ApiID + timestamp + requestBody;
 const signatureRaw = crypto.createHmac('sha256', ApiKey).update(signable).digest();
@@ -123,8 +124,56 @@ req.on('error', (error) => {
 req.write(requestBody);
 req.end();
 
-// Fetch specific customer info:
-//
+// ** Fetch items info: **
+// const fetchItemsInfo = (description, callback) => {
+//     // Create request for getitems endpoint
+//     const itemsRequestBody = JSON.stringify({ Description: description });
+//     const itemsSignable = ApiID + timestamp + itemsRequestBody;
+//     const itemsSignatureRaw = crypto.createHmac('sha256', ApiKey).update(itemsSignable).digest();
+//     const itemsSignatureBase64 = Buffer.from(itemsSignatureRaw).toString('base64');
+
+//     const itemsEndpoint = `https://aktiva.merit.ee/api/v1/getitems?ApiId=${ApiID}&timestamp=${timestamp}&signature=${itemsSignatureBase64}`;
+
+//     const itemsReq = https.request(itemsEndpoint, options, (res) => {
+//         let data = '';
+
+//         res.on('data', (chunk) => {
+//             data += chunk;
+//         });
+
+//         res.on('end', () => {
+//             try {
+//                 const itemsData = JSON.parse(data);
+//                 if (itemsData && itemsData.length > 0) {
+//                     callback(null, itemsData);
+//                 } else {
+//                     callback(new Error('No items found'), null);
+//                 }
+//             } catch (e) {
+//                 callback(e, null);
+//             }
+//         });
+//     });
+
+//     itemsReq.on('error', (error) => {
+//         callback(error, null);
+//     });
+
+//     itemsReq.write(itemsRequestBody);
+//     itemsReq.end();
+// };
+
+// // Fetching items based on a description (broad match)
+// fetchItemsInfo('seeme', (err, itemsInfo) => {
+//     if (err) {
+//         console.error('Error fetching items info:', err);
+//     } else {
+//         console.log('Items Info:', itemsInfo);
+//     }
+// });
+
+
+// ** Fetch specific customer info: **
 // fetchCustomerInfo('f478da9f-7449-4305-9407-341ce6826cb1', (err, customerInfo) => {
 //     if (err) {
 //         console.error('Error fetching specific customer info:', err);
