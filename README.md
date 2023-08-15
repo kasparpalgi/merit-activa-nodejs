@@ -1,6 +1,6 @@
 # NodeJS app to fetch offers from Merit Activa API
 
-Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address" and "PhoneNo" of the customer. Add the "Address" and "PhoneNo" to the offer object in the parsed results.
+Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results.
 
 * Merit Activa API: https://api.merit.ee/connecting-robots/reference-manual/
 * `getoffers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/sales-offers/get-list-of-sales-offers/

@@ -29,7 +29,11 @@ const fetchCustomerInfo = (customerId, callback) => {
                 if (customerData && customerData[0]) {
                     callback(null, {
                         Address: customerData[0].Address,
-                        PhoneNo: customerData[0].PhoneNo
+                        PhoneNo: customerData[0].PhoneNo,
+                        City: customerData[0].City,
+                        CountryName: customerData[0].CountryName,
+                        PostalCode: customerData[0].PostalCode,
+                        Email: customerData[0].Email
                     });
                 } else {
                     callback(new Error('No customer found'), null);
@@ -94,6 +98,10 @@ const req = https.request(endpoint, options, async (res) => {
                             }
                             offer.Address = customerInfo.Address;
                             offer.PhoneNo = customerInfo.PhoneNo;
+                            offer.City = customerInfo.City;
+                            offer.CountryName = customerInfo.CountryName;
+                            offer.PostalCode = customerInfo.PostalCode;
+                            offer.Email = customerInfo.Email;
                             resolve();
                         });
                     });
@@ -114,3 +122,13 @@ req.on('error', (error) => {
 
 req.write(requestBody);
 req.end();
+
+// Fetch specific customer info:
+//
+// fetchCustomerInfo('f478da9f-7449-4305-9407-341ce6826cb1', (err, customerInfo) => {
+//     if (err) {
+//         console.error('Error fetching specific customer info:', err);
+//     } else {
+//         console.log('Specific Customer Info:', customerInfo);
+//     }
+// });
