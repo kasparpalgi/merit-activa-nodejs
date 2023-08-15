@@ -8,3 +8,8 @@
 1. Rename `env-example.txt` to `.env` and add your data into it
 2. `npm i`
 3. `node index.js`
+
+## TODO
+
+* Send data to endpoint or generate XML file or to GraphQL/REST API
+* Could potentially optimise: batch fetch multiple customers at once instead of fetching them one by one
