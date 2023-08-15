@@ -83,10 +83,8 @@ const req = https.request(endpoint, options, async (res) => {
         console.log("Raw Response:", data);
         try {
             const parsedData = JSON.parse(data);
-            try {
-                const parsedData = JSON.parse(data);
 
-                // New loop to fetch customer information
+            (async () => {
                 for (const offer of parsedData) {
                     await new Promise((resolve, reject) => {
                         fetchCustomerInfo(offer.CustomerId, (err, customerInfo) => {
@@ -101,14 +99,13 @@ const req = https.request(endpoint, options, async (res) => {
                     });
                 }
                 console.log(parsedData);
+            })();
 
-            } catch (e) {
-                console.error('Error parsing response:', e);
-            }
         } catch (e) {
             console.error('Error parsing response:', e);
         }
     });
+
 });
 
 req.on('error', (error) => {
