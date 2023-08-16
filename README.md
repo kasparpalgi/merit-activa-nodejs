@@ -24,5 +24,4 @@
 ## TODO
 
 * Item data: https://api.merit.ee/connecting-robots/reference-manual/items/items-list/
-* Send data to endpoint or generate XML file or to GraphQL/REST API
 * Could potentially optimise: batch fetch multiple customers at once instead of fetching them one by one
