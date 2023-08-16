@@ -43,7 +43,7 @@ if (action === "offers") {
             detailedInvoices.push(details);
         }
 
-        console.log(detailedInvoices);
+        console.log(JSON.stringify(detailedInvoices));
     });
 } else {
     console.error('Tundamuti käsk. Kasuta "offers" või "invoices" käske.');
