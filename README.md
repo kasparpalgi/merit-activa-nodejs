@@ -1,6 +1,7 @@
 # NodeJS app to fetch offers from Merit Activa API
 
-Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results. `DocStatus` numeric field is replaced with Estonian text value: "1=created, 2=sent, 3=approved, 4=rejected, 5=comment received, 6=invoice created, 7=canceled" from [docStatus.js](docStatus.js).
+1. Get from `getoffers` API endpoint price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results. `DocStatus` numeric field is replaced with Estonian text value: "1=created, 2=sent, 3=approved, 4=rejected, 5=comment received, 6=invoice created, 7=canceled" from [docStatus.js](docStatus.js).
+2. Get from `getinvoices` API endpoint invoices.
 
 * Merit Activa API: https://api.merit.ee/connecting-robots/reference-manual/
 * `getoffers` API endpoint: https://api.merit.ee/connecting-robots/reference-manual/sales-offers/get-list-of-sales-offers/
@@ -15,8 +16,8 @@ Code gets from `getoffers` API endpoint all the price offers. Parse the results 
 2. `npm i`
 
 ## How to use
-1. Change the `PeriodStart` and `PeriodEnd` in [offers.js](offers.js)
-2. `node index.js`
+1. Change the `PeriodStart` and `PeriodEnd` in [offers.js](offers.js) or in [invoices.js](invoices.js)
+2. `node index.js offers` or `node index.js invoices`
 
 ## TODO
 
