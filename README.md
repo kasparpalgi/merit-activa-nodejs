@@ -1,6 +1,6 @@
 # NodeJS app to fetch offers from Merit Activa API
 
-Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results.
+Code gets from `getoffers` API endpoint all the price offers. Parse the results and for each offer, extract the "CustomerId". For each "CustomerId", call the `getcustomers` endpoint to get the "Address", "Email", "PhoneNo" and some other customer info to the the offer object in the parsed results. `DocStatus` numeric field is replaced with Estonian text value: "1=created, 2=sent, 3=approved, 4=rejected, 5=comment received, 6=invoice created, 7=canceled".
 
 Below are commented out items fetching by the part of the product description and below fetching a specific customer based on the ID.
 

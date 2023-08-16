@@ -1,11 +1,12 @@
-require('dotenv').config();
-
 // Set the start and end date to fetch the offers for
 const requestBody = JSON.stringify({
     PeriodStart: "20230815",
     PeriodEnd: "20230815",
     UnPaid: false
 });
+
+require('dotenv').config();
+const getDocStatusText = require('./docStatus');
 
 const crypto = require('crypto');
 const https = require('https');
@@ -63,10 +64,6 @@ const signable = ApiID + timestamp + requestBody;
 const signatureRaw = crypto.createHmac('sha256', ApiKey).update(signable).digest();
 const signatureBase64 = Buffer.from(signatureRaw).toString('base64');
 
-console.log("String to hash:", signable);
-console.log("Computed HMAC (HEX):", signatureRaw.toString('hex'));
-console.log("Computed HMAC (Base64):", signatureBase64);
-
 const endpoint = `https://aktiva.merit.ee/api/v2/getoffers?ApiId=${ApiID}&timestamp=${timestamp}&signature=${signatureBase64}`;
 
 const options = {
@@ -85,7 +82,6 @@ const req = https.request(endpoint, options, async (res) => {
     });
 
     res.on('end', () => {
-        console.log("Raw Response:", data);
         try {
             const parsedData = JSON.parse(data);
 
@@ -103,6 +99,10 @@ const req = https.request(endpoint, options, async (res) => {
                             offer.CountryName = customerInfo.CountryName;
                             offer.PostalCode = customerInfo.PostalCode;
                             offer.Email = customerInfo.Email;
+
+                            // Replace the DocStatus with its text representation
+                            offer.DocStatus = getDocStatusText(offer.DocStatus);
+
                             resolve();
                         });
                     });
