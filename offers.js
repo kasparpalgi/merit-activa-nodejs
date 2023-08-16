@@ -1,7 +1,7 @@
 // Set the start and end date to fetch the offers for
 const requestBody = JSON.stringify({
     PeriodStart: "20230815", // YYYYMMDD
-    PeriodEnd: "20230815", // YYYYMMDD
+    PeriodEnd: "20230816", // YYYYMMDD
     UnPaid: false
 });
 
