@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "excel4node": "^1.8.2"
   }
 }
