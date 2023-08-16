@@ -20,6 +20,7 @@
 ## How to use
 1. Change the `PeriodStart` and `PeriodEnd` in [offers.js](offers.js) or in [invoices.js](invoices.js)
 2. `node index.js offers` or `node index.js invoices`
+3. See result in [oakkumised](pakkumised) folder
 
 ## TODO
 
