@@ -9,7 +9,7 @@ const statusMapping = {
 };
 
 const getDocStatusText = (status) => {
-    return statusMapping[status] || 'Unknown Status';
+    return statusMapping[status] || 'Teadmata staatus';
 };
 
 module.exports = getDocStatusText;
